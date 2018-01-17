@@ -1,78 +1,102 @@
 package com.company;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
         // write your code here
 
-        Scanner robo = new Scanner(System.in);
+        boolean ask = true;
+        Scanner sc = new Scanner(System.in);
 
-        int value1 = robo.nextLine();
-        int value2 = robo.nextLine();
-        int addition = addNumbers(value1, value2);
-        int subtraction = subNumbers(value1, value2);
-        int multiplication = multNumbers(value1, value2);
-        int division = divNumbers(value1, value2);}
-
-        public static int addNumbers(int number1, int number2){
-        int newValueAdd = number1 + number2;
-        return newValueAdd;}
-
-        public static int subNumbers(int number1, int number2){
-        int newValueSubtract = number1 - number2;
-        return newValueSubtract;}
-        public static int multNumbers(int number1, int number2){
-        int newValueMultiply = number1 + number2;
-        return newValueMultiply;}
-
-        public static int divNumbers(int number1, int number2){
-        int newValueDivide = number1 - number2;
-        return newValueDivide;}
-
-
-
-
-        Boolean ask = true;
+        System.out.println("Welcome to the Java Calculator");
 
         while (ask) {
+
+//            String[] questions = {
+//
+//                    "Please enter the first number: ",
+//                    "Please enter the operator you want to use(+, -, *, /): ",
+//                    "Please enter the second number: ",
+//            };
+//
+//            List<String> answers = new ArrayList<>();
+//
+//            for (int i = 0; i < questions.length; i++) {
+//                System.out.println(questions[i]);
+//                String userEntry = sc.nextLine();
+//                answers.add(userEntry);
+
+
+//            String firstNum = answers.get(0);
+//            int fstNumber = Integer.parseInt(firstNum);
+//
+//            String secondNum = answers.get(2);
+//            int scndNumber = Integer.parseInt(secondNum);
+//
+//            String operator = answers.get(1);
+            System.out.println("Please enter the first number: ");
+            String firstNumber = sc.nextLine();
+            System.out.println("Please enter the operator you want to use(+, -, *, /): ");
+            String operator = sc.nextLine();
+            System.out.println("Please enter the second number: ");
+            String secondNumber = sc.nextLine();
+
+            double fstNumber =
+                    Double.parseDouble(firstNumber);
+            double scndNumber =
+                    Double.parseDouble(secondNumber);
+            double intResult = 0.0;
+
+            if (operator.equals("+") || operator.equals("add")) {
+                intResult = add(fstNumber, scndNumber);
+            } else if (operator.equals("-") || operator.equals("subtract")) {
+                intResult = subtract(fstNumber, scndNumber);
+            } else if (operator.equals("*") || operator.equals("multiply")) {
+                intResult = multiply(fstNumber, scndNumber);
+            } else if (operator.equals("/") || operator.equals("divide")) {
+                intResult = divide(fstNumber, scndNumber);
+            }
+            System.out.println("Your number is: " + intResult);
+
             System.out.println("Would you like to use the calculator?");
-            String userAnswer = robo.nextLine();
-            if (userAnswer.equalsIgnoreCase("yes")) {
-
-                System.out.println("welcome to the calcualtor. Please enter a number.");
-
-                String userinput = robo.nextLine();
-                System.out.println("Please choose +, -, *, or /");
-                String userinput2 = robo.nextLine();
-                System.out.println("Please enter the next number for your calculation");
-                String userinput3 = robo.nextLine();
-
-//                int firstN = Integer.parseInt(userinput);
-//                int thirdN = Integer.parseInt(userinput3);
-//                int finalResult = 0;
-
-
-//                if (userinput2.equals("+")) {
-//                    finalResult = firstN + thirdN;
-//                } else if (userinput2.equals("-")) {
-//                    finalResult = firstN - thirdN;
-//                } else if (userinput2.equals("*")) {
-//                    finalResult = firstN * thirdN;
-//                } else if (userinput2.equals("/")) {
-//                    finalResult = firstN / thirdN;
-//                }
-
-
-                System.out.println("Here is your final number: " + finalResult);
-
-
-            } else{
+            String userAnswer = sc.nextLine();
+            if (userAnswer.equalsIgnoreCase("Yes"))
+                ask = true;
+            else {
                 ask = false;
-                System.out.println("Goodbye");
 
-            }}
+                System.out.println("Thank you for using the HR Salary Calculator!");
+            }
+        }
+
     }
+        //Adding Method
+        public static double add(double fstNumber, double scndNumber){
+            double intResult = fstNumber + scndNumber;
+            return intResult;
+
+        }
+        //Subtraction Method
+        public static double subtract(double fstNumber, double scndNumber){
+            double intResult = fstNumber - scndNumber;
+            return intResult;
+        }
+
+        //Multiplication Method
+        public static double multiply(double fstNumber, double scndNumber){
+            double intResult = fstNumber * scndNumber;
+            return intResult;
+        }
+
+        //Division Method
+        public static double divide(double fstNumber, double scndNumber){
+            double intResult = fstNumber / scndNumber;
+            return intResult;
+        }
+
+}
+

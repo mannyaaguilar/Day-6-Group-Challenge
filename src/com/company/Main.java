@@ -64,8 +64,8 @@ public class Main {
 
             System.out.println("Would you like to use the calculator?");
             String userAnswer = sc.nextLine();
-            if (userAnswer.equalsIgnoreCase("Yes"))
-                ask = true;
+            if (userAnswer.equalsIgnoreCase("Yes")|| userAnswer.equalsIgnoreCase("ye")|| userAnswer.equalsIgnoreCase("y")){
+                ask = true;}
             else {
                 ask = false;
 
